@@ -11,9 +11,9 @@ def weather():
         "temperature_c": 10,
         "temperature_f": 50,
         "condition": "Partly Cloudy",
-        "humidity_percent": XY  # Replace XY with last two digits of Student ID
+        "humidity_percent": 10  #Add with Stephen Alonso's First two Student ID # digits
     }
     return jsonify(data)
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5010)  # Replace XY with Stephen Alonso's Student ID
+    app.run(host='127.0.0.1', port=5010)  # Add with Stephen Alonso's First two Student ID # digits
