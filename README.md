@@ -4,6 +4,6 @@
 
 #To run programs: 
 # 1. Open terminal and type pip install flask
-# 2. Type python server.py
-# 3. Open another terminal and type python client.py
+# 2. Type python3 server.py
+# 3. Open another terminal and type pip install request, then type python3 client.py
 # 4. A default web browser (Google, Edge, or Etc.) will open to a http page containing weather information of Denton. 
