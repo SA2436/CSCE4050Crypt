@@ -1,4 +1,4 @@
-# CSCE4050Crypt
+# CSCE4050Crypt - Group 15
 #The purpose of the GitHub is for CSCE 4050 Project. 
 #Firet set up two python program, server.py (containing weather message with http server) and client.py (GET message from server and run server http) 
 
