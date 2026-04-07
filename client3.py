@@ -5,17 +5,20 @@ import base64, json
 #Task 2.3 HMAC integrity communication for computing MAC
 import hmac
 import hashlib
-#Task 2.8 
-import time
 
-#Task 2 Step 1 - 8 Hardcode a pre-shared secret key same from the server
-secretKey = b'28282828282828282828282828282828' #Using the same method 32-byte key from Homework 5 using the last two student ID 
-mac_key = b'cadc3239e73e53622d0664dff2651767f618a438f00ede9a6541fb1cb4835b05' #For ease input from tag.txt from previce steps on task 2
+#Task 3 Step 2 - Use RSA secret key from server3.py and key_exchange
+with open("response.bin", "rb") as f:
+    secretKey = f.read()
+    
+mac_key = b'cadc3239e73e53622d0664dff2651767f618a438f00ede9a6541fb1cb4835b05' #Hardcoded for ease input from tag.txt from previce steps on task 2
 
 url = "http://127.0.0.1:5028/weather"  # Add the last two digits with Stephen Alonso's student ID (Edit)
-
+#url = "http://127.0.0.1:5029/weather" # For task 2.4 to connect to server_fake
 
 res = requests.get(url) #Send GET request to the weather (edited with the help from ChatGPT to GET the weather data)
+print("Raw response: ") #Fix to see what on the server2.py is bugging (ChatGPT)
+print(res.text)
+
 response = res.json()
 
 nonce = base64.b64decode(response['nonce'])
@@ -32,22 +35,11 @@ if new_mac != tag:
     print("Client will not be able to access data to mismatch data")
     exit()
 
-
 #Decryption for Task 2.6 from task 2.2
 cipher = AES.new(secretKey, AES.MODE_CTR, nonce=nonce)
 plaintext = cipher.decrypt(ciphertext)
-data = json.loads(plaintext)
 
 #Print out authenticated server
 print("Authentication Successful")
 print(json.loads(plaintext)) #ChatGPT fix to printing out the authenticated server
 
-#Update to fix with time stamp
-current_time = int(time.time())
-if abs(current_time - data["timestamp"]) > 10:
-    print(" Replay attack detected!")
-    exit()
-
-#else fresh, accept data
-print("Fresh data")
-print(data)

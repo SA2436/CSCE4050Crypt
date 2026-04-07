@@ -13,8 +13,8 @@ import hashlib
 app = Flask(__name__)
 
 #Task 2 Step 1 - 8 Hardcode a pre-shared secret key 
-secretKey = b'28282828282828282828282828282828' #Using the same method 16-byte key from Homework 5 using the last two student ID 
-mac_key = b'cadc3239e73e53622d0664dff2651767' #For ease input from tag.txt from previce steps on task 2
+secretKey = b'28282828282828282828282828282828' #Using the same method 32-byte key from Homework 5 using the last two student ID 
+mac_key = b'cadc3239e73e53622d0664dff2651767f618a438f00ede9a6541fb1cb4835b05' #Hardcoded for ease input from tag.txt from previce steps on task 2
 
 #Weather endpoint returning a static JSON payload with weather Denton data
 @app.route('/weather', methods=['GET'])
@@ -33,7 +33,7 @@ def weather():
 
     #Task 2.6 MAC encrypted with nonce and computed ciphertext
     data_mac = cipher.nonce + ciphertext
-    tag = hmac.new(mac_key, data_mac, hashlib.sha256).digest()#Task 2.6 new computed mac key to push to response.bin
+    tag = hmac.new(mac_key, data_mac, hashlib.sha256).digest()#Task 2.6 new computed mac key to push to response.bin (FIX with ChatGPT)
 
     enc_data = {
         #Encoding all the binary data to Base64 (advice from GeeksfrGeeks.org and ChatGPT) instead of ChaCha20 
