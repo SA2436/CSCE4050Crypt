@@ -15,11 +15,11 @@ url = "http://127.0.0.1:5028/weather"  # Add the last two digits with Stephen Al
 url_key = "http://127.0.0.1:5028/key"
 
 #Generate AES key troubleshoot fix 
-aes_key = get_random_bytes(32)
+aes_key = get_random_bytes(16)
 
 #Task 3 Step 2 - Use RSA secret key from server3.py and key_exchange
 with open("public.key", "rb") as f:
-    publicKey = f.read()
+    publicKey = RSA.import_key(f.read())
 
 #Encrypt AES with RSA
 rsa_cipher = PKCS1_OAEP.new(publicKey)
@@ -52,7 +52,7 @@ if new_mac != tag:
     exit()
 
 #Decryption for Task 2.6 from task 2.2
-cipher = AES.new(publicKey, AES.MODE_CTR, nonce=nonce)
+cipher = AES.new(aes_key, AES.MODE_CTR, nonce=nonce)
 plaintext = cipher.decrypt(ciphertext)
 
 
