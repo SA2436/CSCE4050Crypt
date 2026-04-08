@@ -16,4 +16,4 @@ def weather():
     return jsonify(data)
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5010)  # Add with Stephen Alonso's First two Student ID # digits
+    app.run(host='127.0.0.1', port=5028)  # Add with Stephen Alonso's First two Student ID # digits
