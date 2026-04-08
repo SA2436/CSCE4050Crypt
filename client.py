@@ -1,6 +1,6 @@
 import requests
 
-url = "http://127.0.0.1:5010/weather"  # Add the last two digits with Stephen Alonso's student ID
+url = "http://127.0.0.1:5028/weather"  # Add the last two digits with Stephen Alonso's student ID
 
 response = requests.get(url) 
 
