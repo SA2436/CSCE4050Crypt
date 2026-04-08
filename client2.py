@@ -9,7 +9,6 @@ import hashlib
 #Task 2 Step 1 - 8 Hardcode a pre-shared secret key same from the server
 secretKey = b'28282828282828282828282828282828' #Using the same method 32-byte key from Homework 5 using the last two student ID 
 
-
 mac_key = b'cadc3239e73e53622d0664dff2651767f618a438f00ede9a6541fb1cb4835b05' #Hardcoded for ease input from tag.txt from previce steps on task 2
 
 url = "http://127.0.0.1:5028/weather"  # Add the last two digits with Stephen Alonso's student ID (Edit)
