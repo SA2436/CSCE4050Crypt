@@ -30,3 +30,6 @@
     python3 -m pip install pycryptomdome 
 # then type client2.py
 # for the last step one terminal should be able to run server_upd.py and client_upd.py on the other. Close server_upd.py and run server_superfake.py and client_upd.py to get see the results for step 2.8
+
+# To watch the programs run here is our video below
+# YouTube videolink: https://youtu.be/MoznYlKrdrw
