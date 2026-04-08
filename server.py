@@ -11,7 +11,7 @@ def weather():
         "temperature_c": 10,
         "temperature_f": 50,
         "condition": "Partly Cloudy",
-        "humidity_percent": 10  #Add with Stephen Alonso's First two Student ID # digits
+        "humidity_percent": 28  #Add with Stephen Alonso's First two Student ID # digits
     }
     return jsonify(data)
 
