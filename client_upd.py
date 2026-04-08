@@ -14,7 +14,6 @@ mac_key = b'cadc3239e73e53622d0664dff2651767f618a438f00ede9a6541fb1cb4835b05' #F
 
 url = "http://127.0.0.1:5028/weather"  # Add the last two digits with Stephen Alonso's student ID (Edit)
 
-
 res = requests.get(url) #Send GET request to the weather (edited with the help from ChatGPT to GET the weather data)
 response = res.json()
 
@@ -32,15 +31,10 @@ if new_mac != tag:
     print("Client will not be able to access data to mismatch data")
     exit()
 
-
 #Decryption for Task 2.6 from task 2.2
 cipher = AES.new(secretKey, AES.MODE_CTR, nonce=nonce)
 plaintext = cipher.decrypt(ciphertext)
 data = json.loads(plaintext)
-
-#Print out authenticated server
-print("Authentication Successful")
-print(json.loads(plaintext)) #ChatGPT fix to printing out the authenticated server
 
 #Update to fix with time stamp
 current_time = int(time.time())
